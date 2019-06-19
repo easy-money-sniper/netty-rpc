@@ -25,6 +25,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by Liang Xu E-Mail: xuliang0706@gmail.com Date: 2019/06/17 11:33
+ * <p>
+ * 连接管理器
  */
 public class ConnectionManager {
     // 连接轮询策略

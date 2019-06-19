@@ -1,6 +1,7 @@
 package easy.money.sniper.model;
 
 import easy.money.sniper.client.AsyncCallback;
+import easy.money.sniper.client.RPCClient;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -84,12 +85,13 @@ public class RPCFuture implements Future<RPCResponse> {
      * @param callback 回调接口
      */
     public void runCallback(AsyncCallback callback) {
-        // TODO: 2019/6/18 异步处理
-        if (response.getError() != null) {
-            callback.fail(response.getError());
-            return;
-        }
-        callback.success(response.getResult());
+        RPCClient.submit(() -> {
+            if (response.getError() != null) {
+                callback.fail(response.getError());
+                return;
+            }
+            callback.success(response.getResult());
+        });
     }
 
     /**

@@ -45,7 +45,6 @@ public class RPCServer implements ApplicationContextAware, InitializingBean, Dis
         this.serverAddress = serverAddress;
         this.handlerMap = new HashMap<>();
         registry.start();
-        // TODO: 2019/6/12 校验
     }
 
     public static void submit(Runnable runnable) {

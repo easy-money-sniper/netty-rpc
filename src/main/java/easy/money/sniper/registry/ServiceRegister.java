@@ -44,11 +44,8 @@ public class ServiceRegister {
      */
     public boolean registerService() {
 
-        // TODO: 2019/6/12 校验格式
-
         boolean flag = createRoot() && createServerNode(serverAddress);
 
-        // TODO: 2019/6/17 关闭后需要验证路径是否存在
         Runtime.getRuntime().addShutdownHook(new Thread(this::stop));
 
         return flag;

@@ -1,6 +1,6 @@
 package easy.money.sniper.demo;
 
-import easy.money.sniper.client.RPCProxyManager;
+import easy.money.sniper.client.RPCClient;
 import easy.money.sniper.demo.service.HelloService;
 import easy.money.sniper.registry.ServiceDiscover;
 
@@ -13,7 +13,7 @@ public class ClientDemoApplication {
     public static void main(String[] args) throws InterruptedException {
         new ServiceDiscover();
 
-        HelloService service = RPCProxyManager.getClient(HelloService.class);
+        HelloService service = RPCClient.getClient(HelloService.class);
 
         // 预热
         service.knock();
